@@ -71,3 +71,19 @@ go run ./cmd/loadtest -clients 50 -rate 40 -duration 30s
 
 It prints stream throughput; the in-app stats overlay shows tick time, client
 count, frame size, and goroutine count.
+
+## Deploying to Fly.io
+
+The app keeps one shared in-memory world, so it runs as a **single always-on
+instance** — `fly.toml` pins `min_machines_running = 1` and disables auto-stop
+and scaling. The `Dockerfile` builds a static binary from the committed templ
+output and CSS (no Node/templ/tailwind needed in the image).
+
+```sh
+# one-time: pick a unique app name (edit `app` in fly.toml or let launch set it)
+fly launch --copy-config --no-deploy
+fly deploy
+```
+
+Datastar still loads from the jsDelivr CDN, so no extra config is required.
+
