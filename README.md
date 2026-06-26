@@ -39,8 +39,10 @@ C × [int16 x, int16 y, u8 r,g,b]  remote cursors + color
 
 ## Running
 
-Prerequisites: Go 1.25+, [`templ`](https://templ.guide), and the standalone
-[Tailwind CLI](https://tailwindcss.com/blog/standalone-cli) (v4).
+Prerequisites: Go 1.25+ and [`templ`](https://templ.guide). The standalone
+[Tailwind CLI](https://tailwindcss.com/blog/standalone-cli) (v4) is bootstrapped
+automatically — `make` downloads a pinned binary into `./bin/tailwindcss` on
+first run. If you already have it on `PATH`, build with `TAILWIND=tailwindcss make`.
 
 ```sh
 make build      # templ generate + tailwind + go build -> bin/server
