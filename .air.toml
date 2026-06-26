@@ -1,0 +1,9 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  cmd = "templ generate && go build -o ./tmp/server ./cmd/server"
+  bin = "./tmp/server"
+  include_ext = ["go", "templ", "js", "css"]
+  exclude_dir = ["tmp", "bin", "assets/static/css"]
+  delay = 200

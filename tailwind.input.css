@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+/* Scan templ-generated Go for class names. */
+@source "./internal/web/*_templ.go";
