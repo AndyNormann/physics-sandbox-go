@@ -1,0 +1,6 @@
+.git
+bin
+tmp
+*.out
+README.md
+fly.toml
